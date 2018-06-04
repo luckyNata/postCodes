@@ -1,0 +1,8 @@
+<div>
+  <h1>Search a postcode</h1>
+  <div>
+    <input type="text" placeholder="Input postcode" class="postCode" [(ngModel)]="code">
+    <button (click)="getPostCodes()"> Search </button>
+  </div>
+  <app-list [codes]="codes"></app-list>
+</div>

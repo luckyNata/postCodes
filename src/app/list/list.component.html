@@ -1,0 +1,23 @@
+<!--<div *ngFor="let codeObj of codes">-->
+  <!--{{codeObj.postcode}}-->
+<!--</div>-->
+<div *ngIf="allCodes&&allCodes.length">
+  <div>
+    <div>Sort by:</div>
+    <select (change)="onSort($event.target.value)">
+      <option *ngFor="let sortValue of sortValues " [value]="sortValue.value">
+        {{ sortValue.title }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <div>Filter by:</div>
+    <input type="text" class="fiterInput">
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let codeObj of allCodes"><a [routerLink]="['/details', codeObj.outcode]">
+      <span>{{codeObj.postcode}}</span> <span>{{codeObj.admin_ward}}</span>
+  </a></li>
+</ul>

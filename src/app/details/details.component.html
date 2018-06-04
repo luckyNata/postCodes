@@ -1,0 +1,13 @@
+<div>
+  <h1>Details</h1>
+  <div>
+    <div>{{outcode}}</div>
+    <div>{{details?.admin_county}}</div>
+    <div>{{details?.admin_district}}</div>
+    <div>{{details?.country}}</div>
+    <ul>
+      <li *ngFor="let item of details?.admin_ward"> {{item}}</li>
+    </ul>
+  </div>
+  <div (click)="goHome()"> Home</div>
+</div>
