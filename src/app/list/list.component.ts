@@ -33,11 +33,11 @@ export class ListComponent implements OnInit, OnChanges {
 
   onSort(value) {
     if ( value == 1 ) {
-      this.codes.sort((a, b) =>  {
+      this.allCodes = this.codes.sort((a, b) =>  {
         return 1;
       });
     } else if ( value == 2) {
-      this.codes.sort((a, b) =>  {
+      this.allCodes  = this.codes.sort((a, b) =>  {
         return -1;
       });
     }
