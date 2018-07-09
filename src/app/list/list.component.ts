@@ -1,7 +1,8 @@
 import {Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MainService } from '../main.service';
-import { Observable } from 'rxjs/Observable';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { Observable ,  fromEvent } from 'rxjs';
+import { Store } from "@ngrx/store";
+
 
 @Component({
   selector: 'app-list',
@@ -18,7 +19,7 @@ export class ListComponent implements OnInit, OnChanges {
     ];
   inputObs$: Observable<any>;
 
-  constructor( private mainService: MainService) { }
+  constructor( private mainService: MainService) {}
   ngOnChanges() {
     if ( this.codes.length) {
       this.allCodes = this.codes.slice();
@@ -28,6 +29,8 @@ export class ListComponent implements OnInit, OnChanges {
   ngOnInit() {
 
     this.onFilter();
+    // this.store.select('data')
+    //   .subscribe(state => console.log(state));
 
   }
 

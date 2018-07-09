@@ -9,7 +9,8 @@ import { DetailsComponent } from './details/details.component';
 import { ListComponent } from './list/list.component';
 import { FormsModule } from '@angular/forms';
 import { MainService } from './main.service';
-
+import {Store, StoreModule} from '@ngrx/store';
+import * as reducers from '../store/reducers/post.reducer';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MainService } from './main.service';
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
+    StoreModule.forRoot({}),
     FormsModule
   ],
   providers: [
@@ -30,4 +32,8 @@ import { MainService } from './main.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(store: Store<any>) {
+    store.select(s => s).subscribe(console.log.bind(console));
+  }
+}
